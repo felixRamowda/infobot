@@ -7,7 +7,10 @@ export default defineConfig({
         laravel({
             input: 'resources/js/app.tsx',
             refresh: true,
+
         }),
         react(),
     ],
+    base: '/',
+ 
 });
