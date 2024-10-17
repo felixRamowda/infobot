@@ -12,5 +12,7 @@ export default defineConfig({
         react(),
     ],
     base: '/',
- 
+    server: {
+        https: true , // Solo en producción se usa HTTPS
+    },
 });
