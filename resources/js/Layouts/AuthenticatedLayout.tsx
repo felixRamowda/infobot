@@ -4,15 +4,20 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
+//import { NavLinkstype } from '@/types/NavlinksTypes';
+import { routesconfig } from './navLinks';
 
 export default function Authenticated({
     header,
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
+ 
+    console.log(Array.isArray(routesconfig));
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+        
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -21,18 +26,31 @@ export default function Authenticated({
                     <div className="flex h-16 justify-between">
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
-                                <Link href="/">
+                                <Link href="/Articles">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                {/* <NavLink
+                                    href={route('articles')}
+                                    active={route().current('articles')}
                                 >
-                                    Dashboard
-                                </NavLink>
+                                    Articles
+                                </NavLink> */}
+                                
+                                {routesconfig.map((e) => {
+                                    return (
+                                    <NavLink
+                                     key={e.name}
+                                     href={route(e.routename)}
+                                     active={route().current(e.routename)}
+                                   >
+                               {e.name}
+                            </NavLink>
+    );
+})}
+                                
                             </div>
                         </div>
 
@@ -130,13 +148,14 @@ export default function Authenticated({
                         ' sm:hidden'
                     }
                 >
-                    <div className="space-y-1 pb-3 pt-2">
+                    <div className="space-y-1 pb-3 pt-2 ">
                         <ResponsiveNavLink
-                            href={route('dashboard')}
-                            active={route().current('dashboard')}
+                            href={route('articles')}
+                            active={route().current('articles')}
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4">

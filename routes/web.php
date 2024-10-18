@@ -9,9 +9,14 @@ use Inertia\Inertia;
     return redirect('/login');
 }); 
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/Articles', function () {
+    return Inertia::render('Articles');
+})->middleware(['auth', 'verified'])->name('articles');
+
+Route::get('/Message', function () {
+    return Inertia::render('Message');
+})->middleware(['auth', 'verified'])->name('message');  
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

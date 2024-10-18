@@ -7,9 +7,9 @@ export default function Guest({ children }: PropsWithChildren){
         <div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0 ">
             <div className='flex items-center gap-x-5'>
                 <h1 className='font-poppins font-light italic lg:text-3xl text-[33px]'>
-                    INFOB
+                    INFOBOT
                 </h1>
-                <Link href="/" className='animate-jump-in animate-duration-600'>
+                <Link href="/Articles" className='animate-jump-in animate-duration-600'>
                     <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
                 </Link>
             </div>

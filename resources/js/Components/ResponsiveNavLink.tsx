@@ -16,6 +16,7 @@ export default function ResponsiveNavLink({
             } text-base font-medium transition duration-150 ease-in-out focus:outline-none ${className}`}
         >
             {children}
+            
         </Link>
     );
 }
