@@ -3,15 +3,16 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticlesController;
 use Inertia\Inertia;
 
  Route::get('/', function () {
     return redirect('/login');
 }); 
 
-Route::get('/Articles', function () {
-    return Inertia::render('Articles');
-})->middleware(['auth', 'verified'])->name('articles');
+Route::resource('/articles', ArticlesController::class)
+      ->middleware(['auth', 'verified']);
+      
 
 Route::get('/Message', function () {
     return Inertia::render('Message');

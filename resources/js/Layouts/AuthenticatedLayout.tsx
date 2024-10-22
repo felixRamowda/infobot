@@ -26,7 +26,7 @@ export default function Authenticated({
                     <div className="flex h-16 justify-between">
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
-                                <Link href="/Articles">
+                                <Link href="/articles">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
@@ -150,8 +150,8 @@ export default function Authenticated({
                 >
                     <div className="space-y-1 pb-3 pt-2 ">
                         <ResponsiveNavLink
-                            href={route('articles')}
-                            active={route().current('articles')}
+                            href={route('articles.index')}
+                            active={route().current('articles.index')}
                         >
                             Dashboard
                         </ResponsiveNavLink>

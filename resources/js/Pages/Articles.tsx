@@ -1,7 +1,14 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export default function Articles() {
+interface Parameters {
+    title: string;
+}
+
+export default function Articles({title}: Parameters) {
+    console.log(title);
+
+    
     return (
         <AuthenticatedLayout
             header={
