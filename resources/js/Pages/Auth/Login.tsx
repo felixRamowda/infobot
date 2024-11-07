@@ -49,7 +49,7 @@ export default function Login({
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
-                        isFocused={true}
+                        isFocused={false}
                         onChange={(e) => setData('email', e.target.value)}
                     />
 

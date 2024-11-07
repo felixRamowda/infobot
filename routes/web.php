@@ -6,8 +6,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticlesController;
 use Inertia\Inertia;
 
- Route::get('/', function () {
-    return redirect('/login');
+Route::get('/', function () {
+    if (Auth::check()) {
+        // Si el usuario está autenticado, redirigir a la página principal o dashboard
+        return redirect('/articles');
+    } else {
+        // Si el usuario no está autenticado, redirigir a la página de login
+        return redirect('/login');
+    }
 }); 
 
 Route::resource('/articles', ArticlesController::class)

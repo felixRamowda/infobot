@@ -1,14 +1,12 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { ArticlesType } from '@/types/ArticlesType';
+import CardComponent from '@/Components/CardComponent';
+import {Button} from "@nextui-org/react";
+import ModalComponent from '@/Components/ModalComponent';
+import Modal from '@/Components/Modal';
 
-interface Parameters {
-    title: string;
-}
-
-export default function Articles({title}: Parameters) {
-    console.log(title);
-
-    
+export default function Articles({ Articles }: { Articles: ArticlesType }) {
     return (
         <AuthenticatedLayout
             header={
@@ -16,18 +14,16 @@ export default function Articles({title}: Parameters) {
                     Articles
                 </h2>
             }
-        >
-            <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
-                            Te logeaste dog!
-                        </div>
-                    </div>
-                </div>
+            >
+            <Head title="Articles" />
+            <div className=' p-2'>
+                <ModalComponent/>
             </div>
+            <div className='flex justify-center '>
+              
+                <CardComponent Articles={Articles}/>
+            </div>
+    
         </AuthenticatedLayout>
     );
 }

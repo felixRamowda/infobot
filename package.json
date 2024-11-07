@@ -24,7 +24,16 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.9.1",
+        "@nextui-org/card": "^2.0.34",
+        "@nextui-org/image": "^2.0.32",
+        "@nextui-org/input": "^2.2.5",
+        "@nextui-org/modal": "^2.0.41",
+        "@nextui-org/react": "^2.4.8",
+        "framer-motion": "^11.11.10",
+        "react-hook-form": "^7.53.1",
         "tailwindcss-animated": "^1.1.2",
-        "zod": "^3.23.8"
+        "zod": "^3.23.8",
+        "zustand": "^5.0.1"
     }
 }

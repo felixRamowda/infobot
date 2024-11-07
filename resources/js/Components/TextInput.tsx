@@ -29,6 +29,7 @@ export default forwardRef(function TextInput(
 
     return (
         <input
+        
             {...props}
             type={type}
             className={

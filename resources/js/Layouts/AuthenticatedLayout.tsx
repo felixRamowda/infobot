@@ -13,7 +13,6 @@ export default function Authenticated({
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
  
-    console.log(Array.isArray(routesconfig));
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
