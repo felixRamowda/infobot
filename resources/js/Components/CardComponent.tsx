@@ -2,15 +2,20 @@ import {Card, CardBody, CardFooter} from "@nextui-org/card";
 import {Image} from "@nextui-org/image";
 import { ArticlesType } from "@/types/ArticlesType";
 import { div } from "framer-motion/client";
-
+import useArticlesStore from "@/Store/ArticleStore";
+import FillterArticles from "@/Services/Function/FilterArticles";
+import EdithArticlesComponent from "./EdithArticleComponent";
 
 export default function CardComponent({Articles}:{Articles: ArticlesType}){
-  console.log(Articles);  
-    return (
-        <div className="p-5 gap-5 grid grid-cols-2 sm:grid-cols-4 bg-white w-[90%] rounded-lg">
 
-             {Articles.map((article, index) => (
-        <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
+  const storeArticles = useArticlesStore((state)=> state.articles);
+ //console.log(storeArticles)
+  
+  return (
+        <div className="p-5 gap-5 grid grid-cols-2 sm:grid-cols-4 bg-white w-[90%] rounded-lg">
+         {Articles.map((article, index) => (
+           <Card shadow="sm" key={index} isPressable onPress={() => FillterArticles(article.id)}>
+          <EdithArticlesComponent/>
           <CardBody className="overflow-visible p-0">
             <Image
               isZoomed

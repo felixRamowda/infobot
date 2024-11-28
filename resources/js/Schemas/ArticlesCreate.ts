@@ -2,15 +2,19 @@ import z from 'zod';
 
 export const ArticleCreateSchema = z.object({
     title: z.string().max(255, {
-        message: "title must be at most 255 characters long"
-    }).nonempty({
-        message: "title is required"
+        message: "Title must be at most 255 characters long"
+    }).min(1,{
+        message: "Title is required"
     }),
-    price: z.string().refine((weight) => !isNaN(parseFloat(weight)), {
+    price: z.string().min(1,{
+        message: "Price is required"
+    }).refine((price) => !isNaN(parseFloat(price)), {
         message: "Price must be a number"
     }),
-    description: z.string().max(65535, {
-        message: "description must be at most 65535 characters long"
+    description: z.string().min(1,{
+        message: "Description is required"
+    }).max(65535, {
+        message: "Description must be at most 65535 characters long"
     }),
     imageUrl: z.any()
 });

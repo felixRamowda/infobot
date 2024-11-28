@@ -76,7 +76,8 @@ class ArticlesController extends Controller
                 'description' => $request->description,
             ]); 
             //dd($request->file("imageUrl"));
-            $newArticle->addMedia($request->file("imageUrl")[0])->toMediaCollection("Article");
+            $newArticle->addMedia($request->file("imageUrl")[0])
+            ->toMediaCollection("Article", "media");
         }
       
     }

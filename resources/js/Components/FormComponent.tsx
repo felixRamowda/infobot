@@ -20,8 +20,6 @@ export default function FormComponent({onClose}: FormComponentProps) {
     });
    
     const formValues = watch();
-
-    //console.log("Form Values:", formValues);
     
     const onSubmit = (data: ArticleCreateType) => {
         const file = data.imageUrl[0]; 
@@ -29,12 +27,10 @@ export default function FormComponent({onClose}: FormComponentProps) {
         if (!allowedExtensions.includes(file.type)) {
             setError("imageUrl", {
                 type: "manual",
-                message: "The selected file must be a .jpg, .png, or .gif image"
+                message: "The selected file must be a .jpg, .png, or .gif image 📌"
             });
             return;
         }
-
-        console.log(data);
         router.post(route('articles.store'),data, {
             onSuccess: ()=>{
                 onClose();
@@ -56,12 +52,13 @@ export default function FormComponent({onClose}: FormComponentProps) {
             {...register('title')}
             style={{ border: 'none', outline: 'none', boxShadow: 'none' }}
             />
-                {errors.title&&<span>{errors.title.message}</span>}
+                {errors.title&&<span>{`${errors.title.message}📌`}</span>}
                 </div>
                 <div>
                     <Input
-                    type="number"
-                    isRequired       
+                    
+                    isRequired  
+                    type="number"     
                     size="lg"
                     variant="bordered"
                     placeholder="Price"
@@ -72,39 +69,39 @@ export default function FormComponent({onClose}: FormComponentProps) {
                         input: "resize-y min-h-[40px]",
                       }}
                     />
-                </div>
+                    {errors.price && <span >{`${errors.price.message}📌`}</span>}
+                    </div>
             <div>
                 <Input
+                isRequired
                 {...register("imageUrl")}
                 className="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded"
                 type="file"
-                required
                 />
                 {errors.imageUrl && <span>{errors.imageUrl.message as string}</span>}
             </div>
+            <div>
             <Textarea
-            size="lg"
+             isRequired
+             size="lg"
              label="Description"
              variant="bordered"
-            placeholder="Enter your description"
-            disableAnimation
-         disableAutosize
+             placeholder="Enter your description"
+             disableAnimation
+             disableAutosize
          {...register("description")}
          classNames={{
          input: "resize-y min-h-[40px]",
          
          }}
          style={{ border: 'none', outline: 'none', boxShadow: 'none' }}
-
-    />
-
+         />
+         {errors.description && <span>{`${errors.description.message}📌`}</span>}
+            </div>
          <div>
             <Button color="primary"  type="submit">Crate Product</Button>
         </div>
      </div>
-    
-       
-
         </form>
         </>
     );
