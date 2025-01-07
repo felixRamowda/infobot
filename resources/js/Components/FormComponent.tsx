@@ -9,17 +9,20 @@ import {Textarea} from "@nextui-org/input";
 import {Input} from "@nextui-org/input";
 import TextInput from "./TextInput";
 
+//TODO: Este componente es el encargado de crear los nuevos Articulos
+
 interface FormComponentProps {
     onClose: () => void;
   } 
 
 export default function FormComponent({onClose}: FormComponentProps) { 
 
-    const { register, handleSubmit, setError,watch,formState: { errors } } = useForm<ArticleCreateType>({
+    const { register, handleSubmit, setError,watch, formState: { errors } } = useForm<ArticleCreateType>({
         resolver: zodResolver(ArticleCreateSchema),
     });
    
-    const formValues = watch();
+    // const formValues = watch();
+    // console.log(formValues);
     
     const onSubmit = (data: ArticleCreateType) => {
         const file = data.imageUrl[0]; 
@@ -46,7 +49,6 @@ export default function FormComponent({onClose}: FormComponentProps) {
                 <Input
             size="lg"
             variant="bordered"
-            
             placeholder="Title"
             isRequired       
             {...register('title')}

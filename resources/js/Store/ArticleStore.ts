@@ -2,15 +2,15 @@ import { create } from "zustand";
 import {ArticlesType } from "@/types/ArticlesType"; //State
 
 type State = {
-    articles: ArticlesType | null
+    article: ArticlesType | null
 }
 
 type Action = {
-  setArticles: (articles: ArticlesType)=> void;
+  setArticles: (article: ArticlesType)=> void;
 }
 const  useArticlesStore = create<State & Action>((set)=>({
- articles: [],
- setArticles: (articles) => set({articles: articles}),
+ article: [],
+ setArticles: (article) => set({article: article}),
 }));
 
 export default useArticlesStore

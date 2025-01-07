@@ -16,12 +16,16 @@ class FlatPathGenerator implements PathGenerator
      */
     public function getPathForConversions(Media $media): string
     {
-
-    
+        
+        return '';
+        
     }
      /*
      * Get the path for responsive images of the given media, relative to the root storage path.
      */
-    public function getPathForResponsiveImages(Media $media): string{ }
+    public function getPathForResponsiveImages(Media $media): string
+    { 
+        return '';
+     }
 
 }

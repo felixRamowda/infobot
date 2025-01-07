@@ -38,5 +38,18 @@ class Article extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
+    /**register Media Collection Article 
+     * 
+    */
+
+    public function registerMediaCollections(): void 
+    {
+        $this->addMediaCollection('Article')->singleFile();
+        /**
+         * you can define as many collections as needed
+         */
+    }
+
+
 
 }

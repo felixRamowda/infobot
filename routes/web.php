@@ -22,7 +22,7 @@ Route::resource('/articles', ArticlesController::class)
 
 Route::get('/Message', function () {
     return Inertia::render('Message');
-})->middleware(['auth', 'verified'])->name('message');  
+})->middleware(['auth', 'verified'])->name('message.index');  
 
 
 Route::middleware('auth')->group(function () {

@@ -10,11 +10,12 @@ import ModalComponent from '@/Components/ModalComponent';
 import Modal from '@/Components/Modal';
 
 export default function Articles({ Articles }: { Articles: ArticlesType }) {
+    console.log(Articles);
+    
          const setArticles = useArticlesStore((state)=>state.setArticles)
          useEffect(()=>{
              setArticles(Articles);
-            },[Articles]);
-           console.log(Articles);
+            },[Articles])
     return (
         <AuthenticatedLayout
             header={

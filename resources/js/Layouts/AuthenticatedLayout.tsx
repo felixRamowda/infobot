@@ -97,7 +97,7 @@ export default function Authenticated({
                                 </Dropdown>
                             </div>
                         </div>
-
+                        {/* Boton Menu Movile */}
                         <div className="-me-2 flex items-center sm:hidden">
                             <button
                                 onClick={() =>
@@ -148,15 +148,16 @@ export default function Authenticated({
                     }
                 >
                     <div className="space-y-1 pb-3 pt-2 ">
-                        <ResponsiveNavLink
-                            href={route('articles.index')}
-                            active={route().current('articles.index')}
+                        {routesconfig.map(e => <ResponsiveNavLink
+                          key = {e.name}
+                          href={route(e.routename)}
+                          active={route().current(e.routename)}
                         >
-                            Dashboard
-                        </ResponsiveNavLink>
+                          {e.name}  
+                        </ResponsiveNavLink>                       
+                        )}
                         
                     </div>
-
                     <div className="border-t border-gray-200 pb-1 pt-4">
                         <div className="px-4">
                             <div className="text-base font-medium text-gray-800">
@@ -166,7 +167,6 @@ export default function Authenticated({
                                 {user.email}
                             </div>
                         </div>
-
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href={route('profile.edit')}>
                                 Profile
@@ -182,7 +182,6 @@ export default function Authenticated({
                     </div>
                 </div>
             </nav>
-
             {header && (
                 <header className="bg-white shadow">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

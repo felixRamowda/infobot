@@ -7,9 +7,7 @@ export default function ModalComponent(){
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     return(
-
       <>
-
        <Button onPress={onOpen}>Add Product</Button>
       <Modal 
       backdrop="opaque"
@@ -25,21 +23,10 @@ export default function ModalComponent(){
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">Add Product</ModalHeader>
-              <ModalBody
-              
+              <ModalBody           
               >
-
-                <FormComponent onClose={onClose} />
-                
-              </ModalBody>
-              {/* <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button> 
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter> */}
+                <FormComponent onClose={onClose} />     
+              </ModalBody>  
             </>
           )}
         </ModalContent>

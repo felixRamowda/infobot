@@ -3,6 +3,6 @@ import { z } from "zod"
 
 export const routesconfig: navLinkstype = [
    {routename: 'articles.index', name: 'Article'},
-   {routename: 'message', name:'Message' } 
+   {routename: 'message.index', name:'Message'} 
 ]
 
