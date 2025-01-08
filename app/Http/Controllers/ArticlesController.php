@@ -108,7 +108,7 @@ class ArticlesController extends Controller
     public function update(Request $request, Article $article)
     {       
         //Colection for Laravel
-        // dd($request->toArray());   
+       // dd($request->toArray());   
         $data = $request->data;
         $data = Arr::only($data,['title','price', 'description']);
         $requestChange=collect($data);
@@ -132,7 +132,9 @@ class ArticlesController extends Controller
             //Cuando llegan solo los datos sin la imagen    
             $article->update($DataChange);
             return back();
-        }else if(!empty($request->data['imageUrl']) && empty($DataChange)){
+        }else if(!empty($request->data['imageUrl']) &&  empty($DataChange)){
+
+
             //Cuando llega solo la imagen los demas datos no cambiarion
             /**
              * Handles the media collection for the given article.

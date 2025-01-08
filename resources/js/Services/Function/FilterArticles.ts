@@ -1,5 +1,3 @@
-
-export default function FillterArticles(idArticle: number){
-    console.log(idArticle);
-    
+export default function FillterArticles(idArticle: number) {
+ console.log(idArticle);
 }
