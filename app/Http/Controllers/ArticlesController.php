@@ -71,6 +71,7 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         //dd($request->toArray());
+        //dd($request->imageUrl);
         $userID = auth()->user()->id;
         if($request->hasFile('imageUrl')){
             $newArticle = Article::create([
@@ -80,7 +81,7 @@ class ArticlesController extends Controller
                 'description' => $request->description,
             ]); 
             //dd($request->file("imageUrl"));
-            $newArticle->addMedia($request->file("imageUrl")[0])
+            $newArticle->addMedia($request->imageUrl)
             ->toMediaCollection("Article", "media");
         }
       
