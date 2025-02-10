@@ -9,6 +9,9 @@
 
 # WhatsApp Chatbot with Laravel, React & Twilio
 
+![image](https://github.com/user-attachments/assets/05a5829a-5fd2-4550-8817-7fe26dc9f29e)
+
+
 This project is a WhatsApp chatbot built using Laravel 11, React with Inertia.js, and Twilio API. It allows users to request promotional products via WhatsApp and receive responses dynamically.
 
 ## Features
@@ -46,12 +49,5 @@ This project is a WhatsApp chatbot built using Laravel 11, React with Inertia.js
 - Node.js & npm
 - MySQL database
 - Twilio account
-
-### Setup
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/whatsapp-chatbot.git
-   cd whatsapp-chatbot
 
 
